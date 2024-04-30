@@ -8,7 +8,12 @@ const cors = require('cors');
 const app = express();
 const port = 4000;
 
-app.use(cors()); // Enable CORS for all routes
+// app.use(cors()); // Enable CORS for all routes
+app.use(cors({
+    origin: 'https://teadfrontened.onrender.com',
+    credentials: true, // Allow cookies (optional)
+    methods: ['GET', 'POST'] // Allow both GET and POST methods
+}));
 app.use(express.json());
 
 mongoose.connect('mongodb+srv://SumitSingh:SumitSingh@teabooking.fnx0evo.mongodb.net/TeaBooking')
